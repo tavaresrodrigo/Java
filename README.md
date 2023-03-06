@@ -1,6 +1,6 @@
 # Java HelloWorld container  
 
-This is a simple HTTP server that responds with "Hello, World!" written in Java.
+This is a simple Linux container that runs an HTTP server written in Java. The server responds to any requests to the root URL (/) with the message: "Hello, World! I'm a Java web application running in a Linux container :)". 
 
 ## Source code
 
@@ -16,7 +16,7 @@ public class HelloWorld {
     HttpServer server = HttpServer.create();
     server.bind(new java.net.InetSocketAddress(8080), 0);
     server.createContext("/", (exchange -> {
-      String response = "Hello, World!\n";
+      String response = "Hello, World! I'm a Java web application running in a Linux container :)\n";
       exchange.sendResponseHeaders(200, response.length());
       OutputStream os = exchange.getResponseBody();
       os.write(response.getBytes());
@@ -28,9 +28,8 @@ public class HelloWorld {
 ```
 
 
-## Running the program 
-
-The commands below will execute the java program on your Operating System.
+## Build and Run the container
+The commands below will build a container and run it in background mapping the port 8080 from your Desktop to the 8080 container port. 
 
 ### Clone the repository 
 ```console
@@ -38,36 +37,21 @@ $ git clone https://github.com/tavaresrodrigo/Java.git
 $ cd Java
 ```
 
-### Compile the code.
-
-```console
-$ javac HelloWorld.java
-```
-
-### Run the program
-
-```console
-$ java HelloWorld
-```
-
-## Build and run the Linux container
-The commands below will build a container and run it in background mapping the port 8080 from your Desktop to the 8080 container port. 
-
 ### Build the container.
 
-```console
+```shell
 $ docker build -t my-java-app .
 ```
 
 ### Run the container.
 
-```console
+```shell
 $ docker run -d -p 8080:8080 --rm my-java-app
 ```
 
 ### Test the web server.
 
-```console 
+```shell 
 $ curl localhost:8080
-Hello, World!``` 
+Hello, World! I'm a Java web application running in a Linux container :)``` 
 ```

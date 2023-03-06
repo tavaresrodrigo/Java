@@ -7,7 +7,7 @@ public class HelloWorld {
     HttpServer server = HttpServer.create();
     server.bind(new java.net.InetSocketAddress(8080), 0);
     server.createContext("/", (exchange -> {
-      String response = "Hello, World!\n";
+      String response = "Hello, World! I'm a Java web application running in a Linux container :)\n";
       exchange.sendResponseHeaders(200, response.length());
       OutputStream os = exchange.getResponseBody();
       os.write(response.getBytes());

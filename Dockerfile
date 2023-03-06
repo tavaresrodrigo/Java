@@ -1,7 +1,6 @@
 FROM ubi8/openjdk-17
-COPY . /usr/src/myapp
-WORKDIR /usr/src/myapp
-ENV JAVA_APP_JAR HelloWorld.jar
-ENV JAVA_MAIN_CLASS HelloWorld
+COPY . /deployments
+WORKDIR /deployments
+RUN javac HelloWorld.java; jar cvfe HelloWorld.jar HelloWorld HelloWorld.class
 EXPOSE 8080
 CMD ["java", "-jar", "HelloWorld.jar"]
