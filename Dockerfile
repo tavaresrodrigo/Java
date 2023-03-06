@@ -3,4 +3,4 @@ COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 RUN javac HelloWorld.java
 EXPOSE 8080
-CMD ["java", "HelloWorld"]
+CMD ["java", "-jar", "HelloWorld.jar"]
