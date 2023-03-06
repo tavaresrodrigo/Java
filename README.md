@@ -1,4 +1,4 @@
-# Hello world with Java :coffee:
+# Java HelloWorld container  
 
 This is a simple HTTP Server **"Hello world"** written in **Java**.
 
